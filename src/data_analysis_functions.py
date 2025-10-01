@@ -92,10 +92,10 @@ def generate_report(statistics):
         "=======================\n\n"
         "Individual Grades:\n\n"
         "Summary:\n"
-        f"Total Students: {statistics["total_students"]}\n"
-        f"Average Grade: {statistics["average_grade"]:.1f}\n"
-        f"Highest Grade: {statistics["highest_grade"]:.1f}\n"
-        f"Lowest Grade: {statistics["lowest_grade"]:.1f}\n"
+        f"Total Students: {statistics['total_students']}\n"
+        f"Average Grade: {statistics['average_grade']:.1f}\n"
+        f"Highest Grade: {statistics['highest_grade']:.1f}\n"
+        f"Lowest Grade: {statistics['lowest_grade']:.1f}\n"
     )
     return report
 
