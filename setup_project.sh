@@ -7,6 +7,8 @@ touch .gitignore
 touch requirements.txt src/data_analysis.py src/data_analysis_functions.py
 echo "Created .gitignore and requirements.txt files."
 
+touch data/courses.json
+
 cat > data/students.csv << 'EOF'
 name,age,grade,subject
 Alice,20,85,Math

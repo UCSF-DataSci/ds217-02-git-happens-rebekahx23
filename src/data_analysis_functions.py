@@ -101,6 +101,7 @@ def generate_report(statistics):
 
 def main():
     # TODO: Orchestrate the analysis using all functions
+    load_data('data/courses.json')
     students = load_data('data/students.csv')
     if not students:
         print("No student data to analyze")
