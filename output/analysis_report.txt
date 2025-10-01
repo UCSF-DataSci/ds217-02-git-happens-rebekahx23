@@ -1,9 +1,0 @@
-Student Grade Analysis
-=======================
-
-Individual Grades:
-
-Summary:
-Total Students: 8
-Average Grade: 85.9
-Math Students: 3
