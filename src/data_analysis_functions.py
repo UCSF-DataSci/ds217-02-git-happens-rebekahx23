@@ -1,4 +1,4 @@
-from data_analysis import calculate_average_grade, generate_report, get_grades_list, save_report
+from data_analysis import calculate_average_grade, get_grades_list, load_students, save_report
 
 
 def load_data(filename):
@@ -7,33 +7,14 @@ def load_data(filename):
     is_csv = filename.lower().endswith('.csv')
     if is_csv:
         students = load_csv(filename)
-    
-    if not is_csv:
+        print(f"Loaded {len(students)} students")
+        return students
+    else:
         print("No data loaded. Please check filename")
-        return
-
-    print(f"Loaded {len(students)} students")
-    return
 
 def load_csv(filename):
     # TODO: Load CSV data (same technique as basic script)
-    students = []
-    try:
-        with open(filename, 'r') as file:
-            reader = students.DictReader(filename)
-            for row in reader:
-                students.append({
-                    'name': row['name'],
-                    'age': int(row['age']),
-                    'grade': int(row['grade']),
-                    'subject': row['subject']
-                })
-    except FileNotFoundError:
-        print(f"Error: File {filename} not found")
-    except Exception as e:
-        print(f"Error loading data: {e}")
-
-    return students
+    return load_students(filename)
 
 def find_highest_grade(grades):
     """Find the highest grade in a list."""
@@ -99,26 +80,38 @@ def analyze_grade_distribution(grades):
 def save_results(results, filename):
     # TODO: Save detailed report
     
-    save = save_report(results, filename)
+    save_report(results, filename)
     return
+
+def generate_report(statistics):
+    """Generate report string."""
+    # TODO: Create formatted string with results
+    # TODO: Use f-strings with .1f for decimals
+    report = (
+        "Student Grade Analysis\n"
+        "=======================\n\n"
+        "Individual Grades:\n\n"
+        "Summary:\n"
+        f"Total Students: {statistics["total_students"]}\n"
+        f"Average Grade: {statistics["average_grade"]:.1f}\n"
+        f"Highest Grade: {statistics["highest_grade"]:.1f}\n"
+        f"Lowest Grade: {statistics["lowest_grade"]:.1f}\n"
+    )
+    return report
 
 def main():
     # TODO: Orchestrate the analysis using all functions
     students = load_data('data/students.csv')
-    print(calculate_average_grade(students))
     if not students:
         print("No student data to analyze")
         return
 
     # Calculate statistics
-    grades_avg = calculate_average_grade(students)
-    total = len(students)
     data = analyze_data(students)
-    results = generate_report(
-            data['total_students'],
-            data['average_grade'],
-            data['highest_grade']
-        )
+    results = generate_report(statistics=data)
     
     save_results(results, 'output/analysis_report.txt')
     return
+
+if __name__ == "__main__":
+    main()
