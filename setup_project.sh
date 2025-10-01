@@ -45,7 +45,7 @@ def main():
     # TODO: Orchestrate the analysis
     return
 EOF
-echo "Created src/data_analysis.py with function stubs."
+echo "Created src/data_analysis.py with function stubs and TODO comments."
 
 cat > src/data_analysis_functions.py << 'EOF'
 def load_data(filename):
@@ -72,7 +72,7 @@ def main():
     # TODO: Orchestrate the analysis using all functions
     return
 EOF
-echo "Created src/data_analysis_functions.py with function stubs."
+echo "Created src/data_analysis_functions.py with function stubs and TODO comments."
 
 
 
